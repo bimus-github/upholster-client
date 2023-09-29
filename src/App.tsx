@@ -1,9 +1,14 @@
 import React from "react";
-import { RouterProvider } from "react-router-dom";
-import { router } from "./router";
+import { About, Navbar, Services } from "./pages";
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Navbar>
+      <About />
+      <hr />
+      <Services />
+    </Navbar>
+  );
 }
 
 export default App;
