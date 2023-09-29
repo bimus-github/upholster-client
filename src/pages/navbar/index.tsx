@@ -11,7 +11,7 @@ const links = [
   },
   {
     id: "services",
-    name: "Hizmatlar",
+    name: "Xizmatlar",
   },
   {
     id: "design",
@@ -74,7 +74,7 @@ function Navbar({ children }: { children: React.ReactNode }) {
         id="header"
       >
         <p className={styles.logo}>
-          <strong>UPHOLTER</strong>
+          <strong>UPHOLSTER</strong>
         </p>
 
         <nav className={styles.navbar}>
@@ -125,12 +125,12 @@ function Navbar({ children }: { children: React.ReactNode }) {
 export default Navbar;
 
 const styles = {
-  contanier: "w-screen h-screen flex flex-col",
+  contanier: "w-screen h-screen flex flex-col ",
   header:
     "h-[70px] fixed w-full bg-white flex justify-between items-center px-5 shadow-lg",
   navbar: "hidden opacity-0 sm:flex sm:opacity-100",
   aside:
-    "flex opacity-100 sm:hidden sm:opacity-0 h-[100vh] w-[150px] bg-white fixed  top-0 right-0 shadow-lg flex-col items-center py-5 gap-5 translate-x-[100%] transition-transform duration-500 ease-in-out ",
+    "flex opacity-100  sm:hidden sm:opacity-0 h-[100vh] w-[150px] bg-white fixed top-0 right-0 shadow-lg flex-col items-center py-5 gap-5 translate-x-[100%] transition-transform duration-500 ease-in-out ",
   logo: "cursor-pointer text-2xl",
   nav: "flex flex-col gap-2 w-full",
   navUl: "flex flex-col gap-2 w-full sm:flex-row md:gap-5 ",
