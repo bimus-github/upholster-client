@@ -81,7 +81,9 @@ function Navbar({ children }: { children: React.ReactNode }) {
           <ul className={styles.navUl}>
             {links.map((link) => (
               <React.Fragment key={link.id}>
-                <li className={styles.navLi}>{link.name}</li>
+                <a href={`#${link.id}`} className={styles.navLi}>
+                  {link.name}
+                </a>
               </React.Fragment>
             ))}
           </ul>
@@ -104,7 +106,9 @@ function Navbar({ children }: { children: React.ReactNode }) {
           <ul className={styles.navUl}>
             {links.map((link) => (
               <React.Fragment key={link.id}>
-                <li className={styles.navLi}>{link.name}</li>
+                <a href={`#${link.id}`} className={styles.navLi}>
+                  {link.name}
+                </a>
                 <hr />
               </React.Fragment>
             ))}
@@ -121,15 +125,17 @@ function Navbar({ children }: { children: React.ReactNode }) {
 export default Navbar;
 
 const styles = {
-  contanier: "w-screen h-screen",
+  contanier: "w-screen h-screen flex flex-col",
   header:
     "h-[70px] fixed w-full bg-white flex justify-between items-center px-5 shadow-lg",
   navbar: "hidden opacity-0 sm:flex sm:opacity-100",
   aside:
-    "flex opacity-100 sm:hidden sm:opacity-0 h-[100vh] w-[150px] bg-white fixed top-0 right-0 shadow-lg flex-col items-center py-5 gap-5 translate-x-[100%] transition-transform duration-500 ease-in-out ",
-  logo: "",
-  navUl: "flex flex-col gap-2 w-full",
-  navLi: "hover:bg-slate-200 w-full text-center py-1",
-  main: "mt-[70px]",
+    "flex opacity-100 sm:hidden sm:opacity-0 h-[100vh] w-[150px] bg-white fixed  top-0 right-0 shadow-lg flex-col items-center py-5 gap-5 translate-x-[100%] transition-transform duration-500 ease-in-out ",
+  logo: "cursor-pointer text-2xl",
+  nav: "flex flex-col gap-2 w-full",
+  navUl: "flex flex-col gap-2 w-full sm:flex-row md:gap-5 ",
+  navLi:
+    "hover:bg-slate-100 sm:hover:bg-white sm:hover:underline w-full text-center py-1 cursor-pointer",
+  main: "mt-[70px] scroll-smooth overflow-y-scroll",
   iconBtn: " p-2 rounded-full hover:bg-slate-100",
 };
