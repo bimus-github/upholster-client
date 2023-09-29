@@ -53,5 +53,5 @@ function About() {
 export default About;
 
 const styles = {
-  about: "min-h-[100vh] p-2 flex flex-col items-start gap-4",
+  about: "min-h-[100vh] py-5 px-2 flex flex-col items-start gap-4",
 };
