@@ -85,7 +85,7 @@ function ServivesList({
 export default ServivesList;
 
 const styles = {
-  main: "w-full flex justify-center items-center relative",
+  main: "w-full flex justify-center items-center relative z-0",
   list:
     "flex items-center gap-5 p-5 rounded-md overflow-y-auto bg-white max-w-full relative drop-shadow-lg",
   item:

@@ -32,7 +32,7 @@ export default Scroller;
 
 const styles = {
   main:
-    "p-5 flex justify-between bg-opacity-0 max-w-[370px] sm:max-w-[550px] md:max-w-[600px] lg:max-w-[800px]  gap-3",
+    "relative z-0 p-5 flex justify-between bg-opacity-0 max-w-[370px] sm:max-w-[550px] md:max-w-[600px] lg:max-w-[800px]  gap-3",
   btn:
     "p-2 rounded-full  opacity-50 hover:opacity-100 bg-sky-300 flex justify-center items-center",
 };

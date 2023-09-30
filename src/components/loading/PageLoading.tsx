@@ -5,7 +5,7 @@ const PageLoading = () => {
     <div
       className={styles.main}
       style={{
-        perspective: "200px",
+        perspective: "400px",
       }}
     >
       <div className={styles.card} />
@@ -22,7 +22,7 @@ const PageLoading = () => {
 export default PageLoading;
 
 const styles = {
-  main: "w-[100px] h-[100px]",
+  main: "w-[200px] h-[200px]",
   card:
-    "absolute w-[50px] h-[50px] bg-sky-200 animate-flip-load origin-bottom-right ",
+    "absolute w-[100px] h-[100px] bg-sky-200 animate-flip-load origin-bottom-right ",
 };
