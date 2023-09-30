@@ -135,7 +135,7 @@ const styles = {
   nav: "flex flex-col gap-2 w-full",
   navUl: "flex flex-col gap-2 w-full sm:flex-row md:gap-5 ",
   navLi:
-    "hover:bg-slate-100 sm:hover:bg-white sm:hover:underline w-full text-center py-1 cursor-pointer",
+    "hover:bg-slate-100 sm:hover:bg-white sm:hover:underline w-full text-center py-1 cursor-pointer font-semibold",
   main: "mt-[70px] scroll-smooth overflow-y-scroll",
   iconBtn: " p-2 rounded-full hover:bg-slate-100",
 };
