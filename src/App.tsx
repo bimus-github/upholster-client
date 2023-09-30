@@ -1,5 +1,5 @@
 import React from "react";
-import { About, Navbar, Services } from "./pages";
+import { About, Designs, Navbar, Services } from "./pages";
 
 function App() {
   window.addEventListener("scroll", () => {
@@ -10,6 +10,8 @@ function App() {
       <About />
       <hr />
       <Services />
+      <hr />
+      <Designs />
     </Navbar>
   );
 }
