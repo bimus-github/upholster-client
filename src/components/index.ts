@@ -6,6 +6,7 @@ import ServiceInfo from "./services/ServiceInfo";
 import PageLoading from "./loading/PageLoading";
 import SelectInput from "./designs/SelectInput";
 import CarServices from "./designs/CarServices";
+import List from "./contact/List";
 
 export {
   MessageCard,
@@ -16,4 +17,5 @@ export {
   PageLoading,
   SelectInput,
   CarServices,
+  List,
 };
