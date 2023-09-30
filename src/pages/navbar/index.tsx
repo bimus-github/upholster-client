@@ -117,7 +117,9 @@ function Navbar({ children }: { children: React.ReactNode }) {
       </header>
 
       <hr />
-      <main className={styles.main}>{children}</main>
+      <main onClick={handleCloseSidebar} className={styles.main}>
+        {children}
+      </main>
     </div>
   );
 }
