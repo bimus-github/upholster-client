@@ -73,7 +73,10 @@ function ServiceInfo({ selectedItemName }: ServiceInfoProps) {
                 </button>
               </div>
 
-              <details>{service.description}</details>
+              <details className={styles.details}>
+                <summary>Xizmat turiga oid ma'lumot</summary>
+                {service.description}
+              </details>
             </div>
           )}
         </>
@@ -93,6 +96,7 @@ const styles = {
   picture:
     "h-[300px] min-w-[300px] relative overflow-hidden rounded-md flex justify-center items-center",
   img: "",
+  details: "p-2 text-justify",
 
   scroller: "flex w-full justify-around ",
   btn: "p-2 w-[100px] bg-sky-300 hover:bg-opacity-50 rounded-md",
