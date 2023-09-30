@@ -51,7 +51,7 @@ function Designs() {
   }, [selectedCarName]);
 
   useEffect(() => {
-    if (selectedCarName && selectedServiceName) {
+    if (selectedCarName.length && selectedServiceName.length) {
       setService({} as Car_Service_Type);
       setLoading(true);
       getServiceOfTheCar(selectedCarName, selectedServiceName)
@@ -95,6 +95,5 @@ function Designs() {
 export default Designs;
 
 const styles = {
-  designs:
-    "min-h-[100vh] py-5 px-2 flex flex-col items-start gap-5 justify-center",
+  designs: "min-h-[100vh] py-5 px-2 flex flex-col items-start gap-5",
 };

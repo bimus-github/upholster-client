@@ -12,6 +12,9 @@ function CarServices({ service, loading }: CarServicesProps) {
     <article className={styles.article}>
       {!loading ? (
         <ul className={styles.ul}>
+          {service.items && service.items?.length === 0 && (
+            <p>Xali ma'lumot qo'shilmagan</p>
+          )}
           {service.items?.map((item, index) => (
             <li
               key={index}
