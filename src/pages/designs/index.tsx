@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { CarServices, SelectInput, TitleForPage } from "../../components";
-import { getCars, getServiceOfTheCar } from "../../firebase/functions/cars";
+import { getCars } from "../../firebase/functions/cars";
 import { getServices } from "../../firebase/functions/services";
-import { Car_Service_Type } from "../../types";
 
 function Designs() {
   const [selectedCarName, setSelectedCarName] = useState<string>("");
   const [selectedServiceName, setSelectedServiceName] = useState<string>("");
-  const [service, setService] = useState<Car_Service_Type>(
-    {} as Car_Service_Type
-  );
+
   const [carOptions, setCarOptions] = useState<string[]>([]);
   const [serviceOptions, setServiceOptions] = useState<string[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+
   const [isCarOptionsLoading, setIsCarOptionsLoading] = useState<boolean>(true);
   const [isCarServiceOptionsLoading, setIsCarServiceOptionsLoading] = useState<
     boolean
@@ -50,22 +47,6 @@ function Designs() {
       });
   }, [selectedCarName]);
 
-  useEffect(() => {
-    if (selectedCarName.length && selectedServiceName.length) {
-      setService({} as Car_Service_Type);
-      setLoading(true);
-      getServiceOfTheCar(selectedCarName, selectedServiceName)
-        .then((data) => {
-          if (data) {
-            setService(data);
-          }
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
-  }, [selectedCarName, selectedServiceName]);
-
   return (
     <section className={styles.designs} id="design">
       <TitleForPage title="Dizaynlar" />
@@ -87,7 +68,10 @@ function Designs() {
       />
 
       <div className="h-[1px] bg-gray-500 w-full" />
-      <CarServices service={service} loading={loading} />
+      <CarServices
+        selectedCarName={selectedCarName}
+        selectedServiceName={selectedServiceName}
+      />
     </section>
   );
 }

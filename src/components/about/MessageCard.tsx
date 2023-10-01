@@ -7,7 +7,7 @@ interface MessageCardProps {
 
 function MessageCard({ children, isClient }: MessageCardProps) {
   return (
-    <div className={styles.main}>
+    <div id="message" className={styles.main}>
       <div
         className={`w-[90%] shadow-bottom  flex ${
           isClient ? styles.client : styles.server
@@ -28,7 +28,8 @@ function MessageCard({ children, isClient }: MessageCardProps) {
 export default MessageCard;
 
 const styles = {
-  main: " w-full flex ",
+  main:
+    " w-full flex message opacity-40 transition-opacity duration-500 ease-in-out",
   dialog: " w-full p-2 flex flex-col items-start gap-2 ",
   h1: "font-semibold",
   p: "text-justify font-serif",

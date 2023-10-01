@@ -1,20 +1,64 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Car_Service_Type } from "../../types";
 import PageLoading from "../loading/PageLoading";
+import { getServiceOfTheCar } from "../../firebase/functions/cars";
 
 interface CarServicesProps {
-  service: Car_Service_Type;
-  loading: boolean;
+  selectedCarName: string;
+  selectedServiceName: string;
 }
 
-function CarServices({ service, loading }: CarServicesProps) {
+function CarServices({
+  selectedCarName,
+  selectedServiceName,
+}: CarServicesProps) {
+  const servicesRef = useRef<HTMLElement>(null);
+
+  const [service, setService] = useState<Car_Service_Type>(
+    {} as Car_Service_Type
+  );
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const services = servicesRef.current;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (
+            selectedCarName.length !== 0 &&
+            selectedServiceName.length !== 0
+          ) {
+            setService({} as Car_Service_Type);
+            setLoading(true);
+            getServiceOfTheCar(selectedCarName, selectedServiceName)
+              .then((data) => {
+                if (data) {
+                  setService(data);
+                } else {
+                  setService({} as Car_Service_Type);
+                  setLoading(false);
+                }
+              })
+              .finally(() => {
+                setLoading(false);
+              });
+          } else {
+            setService({} as Car_Service_Type);
+          }
+        } else {
+        }
+      });
+    });
+    if (services) {
+      observer.observe(services);
+    }
+  }, [selectedCarName, selectedServiceName, setLoading]);
+
   return (
-    <article className={styles.article}>
+    <article ref={servicesRef} className={styles.article} id="services">
       {!loading ? (
         <ul className={styles.ul}>
-          {service.items && service.items?.length === 0 && (
-            <p>Xali ma'lumot qo'shilmagan</p>
-          )}
+          {service.name?.length === 0 && <p>Xali ma'lumot qo'shilmagan</p>}
           {service.items?.map((item, index) => (
             <li
               key={index}

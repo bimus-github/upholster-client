@@ -1,9 +1,36 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useRef } from "react";
 import { MessageCard } from "../../components";
 
 function About() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const messages = ref.current?.querySelectorAll("#message");
+    const obeserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-40");
+          } else {
+            entry.target.classList.add("opacity-40");
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    if (messages) {
+      messages.forEach((message) => {
+        obeserver.observe(message);
+      });
+    }
+  }, []);
+
   return (
-    <section className={styles.about} id="about">
+    <section ref={ref} className={styles.about} id="about">
       <MessageCard isClient>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

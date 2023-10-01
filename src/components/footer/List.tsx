@@ -11,7 +11,7 @@ type ListProps = {
 function List({ title, list }: ListProps) {
   return (
     <div className={styles.list}>
-      <cite className={styles.cite}>{title}</cite>
+      <p className={styles.cite}>{title}</p>
       <ul className={styles.ul}>
         {list.map((item, index) => (
           <li key={index} className={styles.li}>

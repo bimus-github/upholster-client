@@ -16,23 +16,43 @@ function ServivesList({
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    setLoading(true);
-    setServices([]);
-    getServices()
-      .then((data) => {
-        if (data) {
-          // loop name every item
-          data.forEach((item) => {
-            setServices((prev) => {
-              return [...prev, item.name];
-            });
-          });
-        }
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+    const list = listRef.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setLoading(true);
+            setServices([]);
+            setSelectedItemName("");
+            getServices()
+              .then((data) => {
+                if (data) {
+                  // loop name every item
+                  data.forEach((item) => {
+                    setServices((prev) => {
+                      return [...prev, item.name];
+                    });
+                  });
+                  setSelectedItemName(data[0].name);
+                }
+              })
+              .finally(() => {
+                setLoading(false);
+              });
+          } else {
+            setServices([]);
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    if (list) {
+      observer.observe(list);
+    }
+  }, [setSelectedItemName]);
 
   const handleBack = () => {
     if (listRef.current) {
@@ -45,6 +65,7 @@ function ServivesList({
       listRef.current.scrollBy({ left: 150, behavior: "smooth" });
     }
   };
+
   return (
     <div className={styles.main}>
       <Scroller
