@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Tooltip } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -24,37 +24,37 @@ const links = [
 ];
 
 function Navbar({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    const header = document.getElementById("header");
-    let start = window.scrollY;
+  // useEffect(() => {
+  //   const header = document.getElementById("header");
+  //   let start = window.scrollY;
 
-    const hanldeScroll = () => {
-      // find the height of the header
-      const height = header?.offsetHeight;
+  //   const hanldeScroll = () => {
+  //     // find the height of the header
+  //     const height = header?.offsetHeight;
 
-      if (height) {
-        // get the scroll position
-        const end = window.scrollY;
-        const diff = end - start;
+  //     if (height) {
+  //       // get the scroll position
+  //       const end = window.scrollY;
+  //       const diff = end - start;
 
-        // get the percentage of the scroll by the height of the header
-        if (diff > 0) {
-          header.classList.add("translate-y-[-100%]");
-        } else {
-          header.classList.remove("translate-y-[-100%]");
-        }
+  //       // get the percentage of the scroll by the height of the header
+  //       if (diff > 0) {
+  //         header.classList.add("translate-y-[-100%]");
+  //       } else {
+  //         header.classList.remove("translate-y-[-100%]");
+  //       }
 
-        start = end;
-      }
-      handleCloseSidebar();
-    };
+  //       start = end;
+  //     }
+  //     handleCloseSidebar();
+  //   };
 
-    window.addEventListener("scroll", hanldeScroll);
+  //   window.addEventListener("scroll", hanldeScroll);
 
-    return () => {
-      window.removeEventListener("scroll", hanldeScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", hanldeScroll);
+  //   };
+  // }, []);
   const handleCloseSidebar = () => {
     const sidebar = document.getElementById("aside");
     sidebar?.classList.remove("translate-x-0");

@@ -23,26 +23,30 @@ function SelectInput({
           <cite>{title}</cite>
         </legend>
 
-        <input
+        <select
+          name={title}
+          id={title}
           value={selectedItemName}
           onChange={(e) => setSelectedItemName(e.target.value)}
           className={styles.input}
-          type="text"
-          list={title}
-        />
+        >
+          <option value="">None</option>
+          {!loading &&
+            oprions.map((item, index) => (
+              <option key={index} value={item}>
+                {item}
+              </option>
+            ))}
+          {loading && <option className="animate-pulse">Loading...</option>}
+        </select>
         {selectedItemName.length > 0 && (
           <button
             onClick={() => setSelectedItemName("")}
             className="p-2 rounded-full hover:bg-gray-200"
           >
-            <ClearIcon />
+            <ClearIcon fontSize="small" />
           </button>
         )}
-        <datalist id={title}>
-          {!loading &&
-            oprions.map((item, index) => <option key={index} value={item} />)}
-          {loading && <option className="animate-pulse">Loading...</option>}
-        </datalist>
       </fieldset>
     </div>
   );
