@@ -59,5 +59,5 @@ const styles = {
   fieldset:
     "w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] border px-4 py-2 rounded-lg shadow-lg flex",
   legend: "font-semibold",
-  input: "w-full focus:outline-none p-2",
+  input: "w-full focus:outline-none p-2 bg-white",
 };
