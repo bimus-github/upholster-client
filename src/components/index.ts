@@ -7,6 +7,7 @@ import PageLoading from "./loading/PageLoading";
 import SelectInput from "./designs/SelectInput";
 import CarServices from "./designs/CarServices";
 import List from "./contact/List";
+import ListFooter from "./footer/List";
 
 export {
   MessageCard,
@@ -18,4 +19,5 @@ export {
   SelectInput,
   CarServices,
   List,
+  ListFooter,
 };
