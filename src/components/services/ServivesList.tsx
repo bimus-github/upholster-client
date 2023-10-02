@@ -110,5 +110,5 @@ const styles = {
   list:
     "flex items-center gap-5 p-5 rounded-md overflow-y-auto bg-white max-w-full relative drop-shadow-lg",
   item:
-    "min-w-[100px] sm:min-w-[150px] md:min-w-[200px] lg:min-w-[250px] p-2 bg-sky-500 hover:bg-sky-400 text-center rounded-md flex items-center justify-center",
+    "min-w-[100px] sm:min-w-[150px] md:min-w-[200px] lg:min-w-[250px] p-2 bg-sky-500 hover:bg-sky-300 text-center rounded-md flex items-center justify-center",
 };
